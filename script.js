@@ -51,7 +51,7 @@ function Choice(choiceNum, selectContent, isCorrect, questionNum) {
 }
 
 // 正解かどうか判別
-function checkAnswer(num, isCorrect, questionNum) { // Choice型の各変数
+const checkAnswer = (num, isCorrect, questionNum) => { // Choice型の各変数
     const resultId = "a-" + String(questionNum);
     let quizResult = document.getElementById(resultId);
     let element = document.getElementById(num);
@@ -74,7 +74,7 @@ function checkAnswer(num, isCorrect, questionNum) { // Choice型の各変数
 
 
 // 問題番号を引数にとり、正解の選択肢のcssをつける。また、全てのボタンをクリックできなくする（問題の選択肢のli全てにdisabledをつける）
-function choiceDisabled(questionNum) {
+const choiceDisabled = (questionNum) => {
     let questionClass = questions[questionNum - 1];
     let questionChoices = questionClass.answers;
     for (let i = 0; i <= 3; i++) {
@@ -88,7 +88,7 @@ function choiceDisabled(questionNum) {
 }
 
 // 配列をシャッフルする関数
-const shuffle = function([...array]){
+const shuffle = ([...array]) => {
     for (let i = array.length - 1; i >= 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -111,7 +111,7 @@ const kogure = new Question("小榑", "こぐれ", "こしゃく", "こばく", 
 const questions = [takanawa, kameido, koujimachi, onarimon, todoroki, shakuji, zoushiki, okachimachi, shishibone, kogure];
 
 
-window.onload = function(){
+window.onload = () => {
     let questionHtml = ``;
     for (let question of questions) {
         let choices = ``;
