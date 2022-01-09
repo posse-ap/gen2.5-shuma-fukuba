@@ -11,9 +11,9 @@ class Question {
             return "./img/quizes/" + img;
         };
         this.getAnswers = function () {
-            correctNum = "";
-            incrrect1Num = "";
-            incrrect2Num = "";
+            var correctNum = "";
+            var incrrect1Num = "";
+            var incrrect2Num = "";
             const correctChoice = new Choice(correctNum, correct, true, this.num);
             const incrrectChoice1 = new Choice(incrrect1Num, incrrect1, false, this.num);
             const incrrectChoice2 = new Choice(incrrect2Num, incrrect2, false, this.num);
