@@ -120,7 +120,8 @@ header .btn {
 
 /*--- クイズ内容  ---*/
 .quiz {
-    margin: 30px 0;
+    margin: 0 auto;
+    max-width: 630px;
 }
 
 .quiz h1 {
@@ -140,6 +141,7 @@ header .btn {
 
 .choices {
     padding: 0;
+    margin: 0 auto;
 }
 
 .choice {
@@ -153,12 +155,12 @@ header .btn {
 }
 
 /* クイズが正解のときのcssを指定 */
-.choice.correct {
+.correct {
     color: #fff;
     background-color: #287dff;
 }
 
-.choice.incorrect {
+.incorrect {
     color: #fff;
     background-color: #ff5128;
 }
