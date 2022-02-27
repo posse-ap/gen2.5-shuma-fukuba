@@ -41,7 +41,7 @@ const createHTML = () => {
     questions.forEach((question, index) => {
         let answer = question[0]
         // 選択肢をシャッフル
-        for (let i = question.length; i > 0; i--) {
+        for (let i = question.length - 1; i > 0; i--) {
             let r = Math.floor(Math.random() * (i + 1))
             let temp = question[i]
             question[i] = question[r]
