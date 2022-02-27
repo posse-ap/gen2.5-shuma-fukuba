@@ -16,26 +16,25 @@ const createQuestion = (question_id, selections, valid_id) => {
     let contents = `
 
     <div class="quiz">
-            <h1>1. この地名はなんて読む?</h1>
-            <img src="./img/quizes/1.png">
+            <h1>${question_id}. この地名はなんて読む?</h1>
+            <img src="./img/quizes/${question_id}.png">
             <div class="choices">
     `
     selections.forEach((selection, index) => {
         contents += `
-        <div class="choice" id="${String() + Stri}"></div>`
+        <div class="choice" id="${String(question_id) + "-" + String(index+1)}" onclick="check("${String(question_id)}", "${String(index + 1)}", "${valid_id}")">${selection}</div>`
     });
 
     contents += `
-    <div class="choice"></div>
             </div>
             <div class="quiz-result">
-                <div class="quiz-result-title">正解!
-                </div>
                 <div class="quiz-result-description">
-                    正解は「たかなわ」です!                </div>
+                    正解は「${selections[valid_id - 1]}」です!                </div>
             </div>
         </div>`
+    document.getElementById('main').insertAdjacentHTML('beforeend', contents)
 }
+
 
 // すべてのHTMLを作る
 const createHTML = () => {
