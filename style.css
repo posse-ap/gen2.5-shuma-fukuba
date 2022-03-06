@@ -1,0 +1,117 @@
+body {
+  background-color: #eee;
+  height: 100vh;
+}
+
+.original-card {
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 8px #d5d5d5;
+          box-shadow: 0 0 8px #d5d5d5;
+  padding: 20px;
+}
+
+.col-md-6 {
+  padding: 0 10px 0 10px;
+}
+
+header {
+  height: 64px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.header-container {
+  padding-right: 40px;
+  padding-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 64px;
+}
+
+.header-container .header-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-img img {
+  height: 64px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.header-passege {
+  padding-left: 20px;
+  color: #97b9d1;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.learning-time-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.learning-time-card {
+  text-align: center;
+  width: 33%;
+  font-weight: bold;
+}
+
+.learning-time-card .time-card-title {
+  color: #0f71bc;
+}
+
+.learning-time-card .time {
+  font-size: 32px;
+}
+
+.learning-time-card .hour {
+  color: #97b9d1;
+}
+
+.grach-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+}
+
+.graph-card {
+  width: 50%;
+}
+
+.pie-target {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.footer-nav {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */

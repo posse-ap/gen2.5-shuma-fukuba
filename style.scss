@@ -1,0 +1,109 @@
+$font-primary-blue: rgb(15, 113, 188);
+$font-second-blue: rgb(151, 185, 209);
+
+// 円グラフに使う色
+$primary-blue: rgb(3, 69, 236);
+$second-blue: rgb(15, 113, 189);
+$third-blue: rgb(32, 189, 222);
+$forth-blue: rgb(60, 206, 254);
+$fifth-blue: rgb(178, 158, 243);
+$six-blue: rgb(109, 70, 236);
+$seven-blue: rgb(74, 23, 239);
+$eight-blue: rgb(49, 5, 192);
+
+body {
+    background-color: #eee;
+    height: 100vh;
+}
+
+.original-card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 8px #d5d5d5;
+    padding: 20px;
+}
+
+.col-md-6 {
+    padding: 0 10px 0 10px;
+}
+
+header {
+    height: 64px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.header-container {
+    padding-right: 40px;
+    padding-left: 40px;
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+    align-items: center;
+    height: 64px;
+    .header-logo {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.header-img {
+    img {
+        height: 64px;
+        object-fit: cover;
+    }
+}
+
+.header-passege {
+    padding-left: 20px;
+    color: #97b9d1;
+}
+
+
+main {
+    margin-top: 20px;
+}
+
+.learning-time-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.learning-time-card {
+    text-align: center;
+    width: 33%;
+    font-weight: bold;
+    .time-card-title {
+        color: $font-primary-blue;
+    }
+    .time {
+        font-size: 32px;
+    }
+    .hour {
+        color: $font-second-blue;
+    }
+}
+
+
+.grach-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.graph-card {
+    width: 50%;
+}
+
+
+.pie-target {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+
+.footer-nav {
+    text-align: center;
+}
