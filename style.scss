@@ -11,99 +11,215 @@ $six-blue: rgb(109, 70, 236);
 $seven-blue: rgb(74, 23, 239);
 $eight-blue: rgb(49, 5, 192);
 
+$languages-colors: $primary-blue, $second-blue, $third-blue, $forth-blue,
+  $fifth-blue, $six-blue, $seven-blue, $eight-blue;
+
+$contents-colors: $primary-blue, $second-blue, $third-blue;
+
+// フォームカラー
+$form-bg: rgb(245, 245, 248);
+
+@mixin graph-property($colors, $len) {
+  @for $i from 1 through $len {
+    .color-#{$i}::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      background-color: nth($colors, $i);
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+  }
+}
+
 body {
-    background-color: #eee;
-    height: 100vh;
+  background-color: #eee;
+  height: 100vh;
+  position: relative;
 }
 
 .original-card {
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 8px #d5d5d5;
-    padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 8px #d5d5d5;
+  padding: 20px;
 }
 
 .col-md-6 {
-    padding: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
+}
+
+.log-btn {
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(to right, $second-blue, $forth-blue);
+  padding: 10px 60px;
+  position: relative;
+  z-index: 10;
+  transition: 0.5s ease all;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    display: block;
+    width: 100%;
+    opacity: 1;
+    height: 110%;
+    background: linear-gradient(to right, $second-blue, $forth-blue);
+    border-radius: 20px;
+    filter: blur(6px);
+    z-index: -1;
+    transition: 0.5s ease all;
+  }
+
+  &:hover {
+    opacity: 0.8;
+    color: #fff;
+    &::after {
+      background: none;
+    }
+  }
 }
 
 header {
-    height: 64px;
-    width: 100%;
-    background-color: #fff;
+  height: 64px;
+  width: 100%;
+  background-color: #fff;
 }
 
 .header-container {
-    padding-right: 40px;
-    padding-left: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  object-fit: cover;
+  align-items: center;
+  height: 64px;
+  .header-logo {
     display: flex;
-    justify-content: space-between;
-    object-fit: cover;
     align-items: center;
-    height: 64px;
-    .header-logo {
-        display: flex;
-        align-items: center;
-    }
+  }
 }
 
 .header-img {
-    img {
-        height: 64px;
-        object-fit: cover;
-    }
+  img {
+    height: 64px;
+    object-fit: cover;
+  }
 }
 
 .header-passege {
-    padding-left: 20px;
-    color: #97b9d1;
+  padding-left: 20px;
+  color: #97b9d1;
 }
 
-
-main {
-    margin-top: 20px;
+.main-half-box {
+  margin-top: 20px;
 }
 
 .learning-time-cards {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
 }
 
 .learning-time-card {
-    text-align: center;
-    width: 33%;
-    font-weight: bold;
-    .time-card-title {
-        color: $font-primary-blue;
-    }
-    .time {
-        font-size: 32px;
-    }
-    .hour {
-        color: $font-second-blue;
-    }
+  text-align: center;
+  width: 33%;
+  font-weight: bold;
+  .time-card-title {
+    color: $font-primary-blue;
+  }
+  .time {
+    font-size: 32px;
+  }
+  .hour {
+    color: $font-second-blue;
+  }
 }
 
-
 .grach-cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .graph-card {
-    width: 50%;
+  width: 50%;
 }
-
 
 .pie-target {
-    max-width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
 
+.languages-tags {
+  @include graph-property($languages-colors, 8);
+}
+
+.contents-tags {
+  @include graph-property($contents-colors, 3);
+}
 
 .footer-nav {
-    text-align: center;
+  text-align: center;
+}
+
+// modal
+
+.my-modal input {
+  display: none; // transition: .5s ease all;
+}
+
+.modal-background {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0s 0.5s;
+  transform: scale(0);
+}
+
+.modal-trigger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  position: relative;
+  align-self: center;
+  width: 60%;
+  min-width: 800px;
+  padding: 30px 30px 15px;
+  box-sizing: border-box;
+  background-color: #fff;
+  line-height: 1.4em;
+  transition: 0.5s;
+}
+
+.close-button {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.my-modal input:checked ~ .modal-background {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s;
 }

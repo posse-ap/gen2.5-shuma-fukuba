@@ -11,75 +11,99 @@
     <link rel="stylesheet" href="./reset.css">
     <!-- original css -->
     <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <header>
-        <div class="header-container container-fluid">
-            <div class="header-logo">
-                <div class="header-img">
-                    <img src="./img/logo.jpeg" alt="">
-                </div>
-                <div class="header-passege">4th week</div>
-            </div>
-            <div class="header-btn">
-                <button>記録・投稿</button>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <!-- メイン部分 -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="learning-time-cards">
-                        <div class="learning-time-card original-card">
-                            <p class="time-card-title">Today</p>
-                            <p class="time">3</p>
-                            <p class="hour">hour</p>
-                        </div>
-                        <div class="learning-time-card original-card">
-                            <p class="time-card-title">Month</p>
-                            <p class="time">120</p>
-                            <p class="hour">hour</p>
-                        </div>
-                        <div class="learning-time-card original-card">
-                            <p class="time-card-title">Total</p>
-                            <p class="time">1348</p>
-                            <p class="hour">hour</p>
-                        </div>
-                    </div>
-
-                    <div class="bar-graph-card original-card">
-                        this is graph
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="grach-cards">
-                        <div class="graph-card original-card">
-                            <p class="grach-title">学習言語</p>
-                            <div id="languages-target" class="pie-target"></div>
-                        </div>
-                        <div class="graph-card original-card">
-                            <p class="grach-title">学習コンテンツ</p>
-                            <div id="contents-target" class="pie-target"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 年月切り替え -->
-    <footer>
-        <div class="footer-nav">
-            <p><a href="#">&lt;</a><span>2022年 2月</span><a href="#">&gt;</a></p>
-        </div>
-    </footer>
-
-
     <script src="./js/chart.js"></script>
     <script src="./js/graph.js"></script>
     <script src="./js/app.js"></script>
+</head>
+<body>
+
+    <!-- modal -->
+    <div class="my-modal" id="my-modal">
+        <input type="checkbox" id="trigger" checked>
+        <div class="modal-background">
+            <label for="trigger" class="modal-trigger"></label>
+            <div class="card container modal-content" id="modal-content">
+                <label for="trigger" class="close-button">✗</label>
+                <!-- content -->
+                コンテントコンテんと
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <header>
+            <div class="header-container container-fluid">
+                <div class="header-logo">
+                    <div class="header-img">
+                        <img src="./img/logo.jpeg" alt="">
+                    </div>
+                    <div class="header-passege">4th week</div>
+                </div>
+                <div class="header-btn">
+                    <label for="trigger" onclick="isChecked()" class="btn log-btn">記録・投稿</label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <!-- メイン部分 -->
+                <div class="row">
+                    <div class="col-md-6 main-half-box">
+                        <div class="learning-time-cards">
+                            <div class="learning-time-card original-card">
+                                <p class="time-card-title">Today</p>
+                                <p class="time">3</p>
+                                <p class="hour">hour</p>
+                            </div>
+                            <div class="learning-time-card original-card">
+                                <p class="time-card-title">Month</p>
+                                <p class="time">120</p>
+                                <p class="hour">hour</p>
+                            </div>
+                            <div class="learning-time-card original-card">
+                                <p class="time-card-title">Total</p>
+                                <p class="time">1348</p>
+                                <p class="hour">hour</p>
+                            </div>
+                        </div>
+
+                        <div class="bar-graph-card original-card">
+                            this is graph
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 main-half-box">
+                        <div class="grach-cards">
+                            <div class="graph-card original-card">
+                                <p class="grach-title">学習言語</p>
+                                <canvas id="languages-target" class="pie-target"></canvas>
+                                <div class="tags">
+                                    <ul id="languages-tags" class="languages-tags">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="graph-card original-card">
+                                <p class="grach-title">学習コンテンツ</p>
+                                <canvas id="contents-target" class="pie-target"></canvas>
+                                <div class="tags">
+                                    <ul id="contents-tags" class="contents-tags">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 年月切り替え -->
+        <footer>
+            <div class="footer-nav">
+                <p><a href="#">&lt;</a><span>2022年 2月</span><a href="#">&gt;</a></p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
