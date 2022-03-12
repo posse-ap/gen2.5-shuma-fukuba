@@ -13,6 +13,20 @@ const createChartTags = (id, contents) => {
     target.insertAdjacentHTML('beforeend', text)
 }
 
+const drawFormCheckbox = (id, contents, name) => {
+    let target = document.getElementById(id)
+    contents.forEach((element, index) => {
+        let text = `
+        <input type="checkbox" name="${name}[]" id="${name}-${index}">
+        <label for="${name}-${index}" class="modal-form-input-mini">
+            <span class="check"></span>
+            <span>${element}</span>
+        </label>
+        `
+        target.insertAdjacentHTML('beforeend', text)
+    });
+}
+
 const openModal = () => {
     let modal = document.getElementById('my-modal')
     modal.style.display = 'block'
@@ -27,5 +41,6 @@ const closeModal = () => {
 window.onload = () => {
     // createChartTags(LANGUAGES_TAGS_TARGET, languages)
     // createChartTags(CONTENTS_TAGS_TARGET, learningContents)
-
+    drawFormCheckbox('modal-form-contents', learningContents, 'contents')
+    drawFormCheckbox('modal-form-languages', languages, 'languages')
 }

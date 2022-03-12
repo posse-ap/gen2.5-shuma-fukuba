@@ -39,6 +39,10 @@ body {
   position: relative;
 }
 
+textarea {
+  resize: none;
+}
+
 .original-card {
   border-radius: 10px;
   background-color: #fff;
@@ -172,8 +176,8 @@ header {
 
 // modal
 
-.my-modal input {
-  display: none; // transition: .5s ease all;
+.my-modal input[type="checkbox"] {
+  display: none;
 }
 
 .modal-background {
@@ -201,13 +205,27 @@ header {
 .modal-content {
   position: relative;
   align-self: center;
-  width: 60%;
-  min-width: 800px;
-  padding: 30px 30px 15px;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 56px;
   box-sizing: border-box;
   background-color: #fff;
   line-height: 1.4em;
   transition: 0.5s;
+  border-radius: 20px;
+  .submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.modal-content-wrapper {
+  display: flex;
+  gap: 40px;
+  .modal-component {
+    width: 50%;
+    margin-bottom: 20px;
+  }
 }
 
 .close-button {
@@ -222,4 +240,56 @@ header {
   opacity: 1;
   transform: scale(1);
   transition: opacity 0.5s;
+}
+
+.modal-form-input {
+  padding: 5px 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.modal-form-input-mini {
+  padding: 5px 10px;
+  background-color: #eee;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.check {
+  padding: 0;
+  position: relative;
+  background-color: #d5d5d5;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  transform-origin: center;
+  border-radius: 50%;
+  margin-right: 5px;
+  transition: 0.3s ease;
+  &::before {
+    content: "";
+    width: 5px;
+    height: 2px;
+    border-radius: 2px; // so that the tick has nice rounded look
+    background: #fff;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0.5em; // you'll need to experiment with placement depending on the dimensions you've chosen
+    left: 0.2em;
+  }
+
+  &::after {
+    content: "";
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    position: absolute;
+    transform: rotate(305deg);
+    top: 0.42em;
+    left: 0.3em;
+  }
 }
