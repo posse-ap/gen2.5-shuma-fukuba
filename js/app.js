@@ -17,8 +17,8 @@ const drawFormCheckbox = (id, contents, name) => {
     let target = document.getElementById(id)
     contents.forEach((element, index) => {
         let text = `
-        <input type="checkbox" name="${name}[]" id="${name}-${index}">
-        <label for="${name}-${index}" class="modal-form-input-mini">
+        <input type="checkbox" name="${name}[]" id="${name}-${index}" class="form-checkbox">
+        <label for="${name}-${index}" class="modal-form-input-mini label-text">
             <span class="check"></span>
             <span>${element}</span>
         </label>
