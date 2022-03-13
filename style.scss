@@ -206,7 +206,7 @@ header {
   align-self: center;
   width: 100%;
   max-width: 900px;
-  padding: 20px 56px;
+  padding: 0 56px 20px 56px;
   box-sizing: border-box;
   background-color: #fff;
   line-height: 1.4em;
@@ -227,6 +227,7 @@ header {
   display: flex;
   gap: 40px;
   .modal-component {
+    padding-top: 20px;
     width: 50%;
     margin-bottom: 20px;
   }
@@ -312,5 +313,14 @@ header {
     transform: rotate(305deg);
     top: 0.42em;
     left: 0.3em;
+  }
+}
+
+@media (max-width: 720px) {
+  .modal-content-wrapper {
+    flex-direction: column;
+    .modal-component {
+      width: 100%;
+    }
   }
 }
