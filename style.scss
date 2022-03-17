@@ -170,8 +170,19 @@ header {
   @include graph-property($contents-colors, 3);
 }
 
-.footer-nav {
+.foot-nav {
+  margin-top: 20px;
   text-align: center;
+}
+
+.floating-btn {
+  display: none;
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+  .log-btn {
+    width: 100%;
+  }
 }
 
 // modal
@@ -179,42 +190,44 @@ header {
   display: none;
 }
 
-.modal-background {
-  display: flex;
-  justify-content: center;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999999;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: opacity 0.5s, transform 0s 0.5s;
-  transform: scale(0);
-}
-
-.modal-trigger {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-content {
-  position: relative;
-  align-self: center;
-  width: 100%;
-  max-width: 900px;
-  padding: 0 56px 20px 56px;
-  box-sizing: border-box;
-  background-color: #fff;
-  line-height: 1.4em;
-  transition: 0.5s;
-  border-radius: 20px;
-  .submit-btn {
+@media (min-width: 780px) {
+  .modal-background {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0s 0.5s;
+    transform: scale(0);
+  }
+
+  .modal-trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-content {
+    position: relative;
+    align-self: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 56px 20px 56px;
+    box-sizing: border-box;
+    background-color: #fff;
+    line-height: 1.4em;
+    transition: 0.5s;
+    border-radius: 20px;
+    .submit-btn {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
@@ -316,11 +329,59 @@ header {
   }
 }
 
-@media (max-width: 720px) {
-  .modal-content-wrapper {
-    flex-direction: column;
-    .modal-component {
+@media (max-width: 780px) {
+  // change button position
+  .header-btn {
+    display: none;
+  }
+  .floating-btn {
+    display: block;
+  }
+
+  .modal-background {
+    display: flex;
+    // justify-content: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0s 0.5s;
+    transform: scale(0);
+  }
+
+  .modal-trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-content {
+    margin-top: 74px;
+    position: relative;
+    width: 100%;
+    overflow: scroll;
+    padding: 0 10px 20px 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    line-height: 1.4em;
+    transition: 0.5s;
+    border-radius: 20px 20px 0 0;
+    .submit-btn {
       width: 100%;
+      text-align: center;
+    }
+    .modal-content-wrapper {
+      flex-direction: column;
+      gap: 0;
+      align-items: center;
+      .modal-component {
+        width: 100%;
+      }
     }
   }
 }

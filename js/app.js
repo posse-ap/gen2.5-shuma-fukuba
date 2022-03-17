@@ -44,3 +44,9 @@ window.onload = () => {
     drawFormCheckbox('modal-form-contents', learningContents, 'contents')
     drawFormCheckbox('modal-form-languages', languages, 'languages')
 }
+
+
+const loading = async() => {
+    await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json())
+    .then(json => console.log(json))
+}

@@ -267,64 +267,75 @@ header {
   margin-right: 5px;
 }
 
-.footer-nav {
+.foot-nav {
+  margin-top: 20px;
   text-align: center;
+}
+
+.floating-btn {
+  display: none;
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.floating-btn .log-btn {
+  width: 100%;
 }
 
 .my-modal input[type="checkbox"] {
   display: none;
 }
 
-.modal-background {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999999;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  -webkit-transition: opacity 0.5s, -webkit-transform 0s 0.5s;
-  transition: opacity 0.5s, -webkit-transform 0s 0.5s;
-  transition: opacity 0.5s, transform 0s 0.5s;
-  transition: opacity 0.5s, transform 0s 0.5s, -webkit-transform 0s 0.5s;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-
-.modal-trigger {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.modal-content {
-  position: relative;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 100%;
-  max-width: 900px;
-  padding: 0 56px 20px 56px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #fff;
-  line-height: 1.4em;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border-radius: 20px;
-}
-
-.modal-content .submit-btn {
-  width: 100%;
-  text-align: center;
+@media (min-width: 780px) {
+  .modal-background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0.5s, transform 0s 0.5s;
+    transition: opacity 0.5s, transform 0s 0.5s, -webkit-transform 0s 0.5s;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  .modal-trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content {
+    position: relative;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 56px 20px 56px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #fff;
+    line-height: 1.4em;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 20px;
+  }
+  .modal-content .submit-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .modal-form-title {
@@ -435,14 +446,67 @@ header {
   left: 0.3em;
 }
 
-@media (max-width: 720px) {
-  .modal-content-wrapper {
+@media (max-width: 780px) {
+  .header-btn {
+    display: none;
+  }
+  .floating-btn {
+    display: block;
+  }
+  .modal-background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    -webkit-transition: opacity 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0s 0.5s;
+    transition: opacity 0.5s, transform 0s 0.5s;
+    transition: opacity 0.5s, transform 0s 0.5s, -webkit-transform 0s 0.5s;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  .modal-trigger {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content {
+    margin-top: 74px;
+    position: relative;
+    width: 100%;
+    overflow: scroll;
+    padding: 0 10px 20px 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #fff;
+    line-height: 1.4em;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 20px 20px 0 0;
+  }
+  .modal-content .submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .modal-content .modal-content-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    gap: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .modal-content-wrapper .modal-component {
+  .modal-content .modal-content-wrapper .modal-component {
     width: 100%;
   }
 }

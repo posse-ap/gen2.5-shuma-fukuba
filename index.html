@@ -25,7 +25,7 @@
             <input type="checkbox" id="trigger" checked class="modal-isopen">
             <div class="modal-background">
                 <label for="trigger" class="modal-trigger"></label>
-                <div class="card container modal-content" id="modal-content">
+                <div class="card container-fluid modal-content" id="modal-content">
                     <label for="trigger" class="close-button">×</label>
                     <!-- content -->
                     <form class="modal-content-wrapper">
@@ -44,13 +44,14 @@
                         <div class="modal-right modal-component">
                             <div class="modal-form-child">
                                 <p class="modal-form-title">学習時間</p>
-                                <input type="text" name="lerning-time"  inputmode="numeric" class="modal-form-input">
+                                <input type="text" name="lerning-time" inputmode="numeric" class="modal-form-input">
                             </div>
                             <div class="modal-form-child">
                                 <p class="modal-form-title">Twitter用コメント</p>
-                                <textarea name="comment" id="twitter-comment" cols="30" rows="10" class="modal-form-input"></textarea>
-                                    <input type="checkbox" name="share" id="share" class="form-checkbox">
-                                    <label for="share" class="label-text"><span class="check"></span>Twitterにシェアする</label>
+                                <textarea name="comment" id="twitter-comment" cols="30" rows="10"
+                                    class="modal-form-input"></textarea>
+                                <input type="checkbox" name="share" id="share" class="form-checkbox">
+                                <label for="share" class="label-text"><span class="check"></span>Twitterにシェアする</label>
                             </div>
                         </div>
                     </form>
@@ -126,15 +127,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="foot-nav">
+                        <p><a href="#">&lt;</a><span>2022年 3月</span><a href="#">&gt;</a></p>
+                    </div>
+                    <div class="floating-btn"><label for="trigger" class="btn log-btn">記録・投稿</label></div>
                 </div>
             </main>
 
             <!-- 年月切り替え -->
-            <footer>
-                <div class="footer-nav">
-                    <p><a href="#">&lt;</a><span>2022年 3月</span><a href="#">&gt;</a></p>
-                </div>
-            </footer>
         </div>
     </body>
 
