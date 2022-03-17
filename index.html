@@ -22,42 +22,46 @@
 
         <!-- modal -->
         <div class="my-modal" id="my-modal">
-            <input type="checkbox" id="trigger" checked class="modal-isopen">
+            <input type="checkbox" id="trigger" class="modal-isopen">
             <div class="modal-background">
                 <label for="trigger" class="modal-trigger"></label>
                 <div class="card container-fluid modal-content" id="modal-content">
                     <label for="trigger" class="close-button">×</label>
                     <!-- content -->
-                    <form class="modal-content-wrapper">
-                        <div class="modal-left modal-component">
-                            <div class="modal-form-child">
-                                <p class="modal-form-title">学習日</p>
-                                <input type="date" class="modal-form-input">
+                    <form class="modal-content-form">
+                        <div class="modal-content-wrapper">
+                            <div class="modal-left modal-component">
+                                <div class="modal-form-child">
+                                    <p class="modal-form-title">学習日</p>
+                                    <input type="date" class="modal-form-input">
+                                </div>
+                                <div class="modal-form-child" id="modal-form-contents">
+                                    <p class="modal-form-title">学習コンテンツ（複数選択可）</p>
+                                </div>
+                                <div class="modal-form-child" id="modal-form-languages">
+                                    <p class="modal-form-title">学習言語（複数選択可）</p>
+                                </div>
                             </div>
-                            <div class="modal-form-child" id="modal-form-contents">
-                                <p class="modal-form-title">学習コンテンツ（複数選択可）</p>
-                            </div>
-                            <div class="modal-form-child" id="modal-form-languages">
-                                <p class="modal-form-title">学習言語（複数選択可）</p>
+                            <div class="modal-right modal-component">
+                                <div class="modal-form-child">
+                                    <p class="modal-form-title">学習時間</p>
+                                    <input type="text" name="lerning-time" inputmode="numeric" class="modal-form-input">
+                                </div>
+                                <div class="modal-form-child">
+                                    <p class="modal-form-title">Twitter用コメント</p>
+                                    <textarea name="comment" id="twitter-comment" cols="30" rows="10"
+                                        class="modal-form-input"></textarea>
+                                    <input type="checkbox" name="share" id="share" class="form-checkbox">
+                                    <label for="share" class="label-text"><span class="check"></span>Twitterにシェアする</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="modal-right modal-component">
-                            <div class="modal-form-child">
-                                <p class="modal-form-title">学習時間</p>
-                                <input type="text" name="lerning-time" inputmode="numeric" class="modal-form-input">
-                            </div>
-                            <div class="modal-form-child">
-                                <p class="modal-form-title">Twitter用コメント</p>
-                                <textarea name="comment" id="twitter-comment" cols="30" rows="10"
-                                    class="modal-form-input"></textarea>
-                                <input type="checkbox" name="share" id="share" class="form-checkbox">
-                                <label for="share" class="label-text"><span class="check"></span>Twitterにシェアする</label>
-                            </div>
+
+                        <div class="submit-btn">
+                            <button class="btn log-btn">記録・投稿</button>
                         </div>
                     </form>
-                    <div class="submit-btn">
-                        <button class="btn log-btn">記録・投稿</button>
-                    </div>
+
                 </div>
             </div>
         </div>

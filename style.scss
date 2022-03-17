@@ -229,21 +229,21 @@ header {
       text-align: center;
     }
   }
+
+  .modal-content-wrapper {
+    display: flex;
+    gap: 40px;
+    .modal-component {
+      padding-top: 20px;
+      width: 50%;
+      margin-bottom: 20px;
+    }
+  }
 }
 
 .modal-form-title {
   font-weight: 500;
   margin-bottom: 10px;
-}
-
-.modal-content-wrapper {
-  display: flex;
-  gap: 40px;
-  .modal-component {
-    padding-top: 20px;
-    width: 50%;
-    margin-bottom: 20px;
-  }
 }
 
 .close-button {
@@ -371,15 +371,19 @@ header {
     line-height: 1.4em;
     transition: 0.5s;
     border-radius: 20px 20px 0 0;
-    .submit-btn {
-      width: 100%;
-      text-align: center;
-    }
     .modal-content-wrapper {
+      padding-top: 20px;
       flex-direction: column;
       gap: 0;
       align-items: center;
       .modal-component {
+        width: 100%;
+      }
+    }
+    .submit-btn {
+      margin-top: 20px;
+      width: 100%;
+      .btn {
         width: 100%;
       }
     }

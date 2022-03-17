@@ -336,24 +336,22 @@ header {
     width: 100%;
     text-align: center;
   }
+  .modal-content-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 40px;
+  }
+  .modal-content-wrapper .modal-component {
+    padding-top: 20px;
+    width: 50%;
+    margin-bottom: 20px;
+  }
 }
 
 .modal-form-title {
   font-weight: 500;
   margin-bottom: 10px;
-}
-
-.modal-content-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 40px;
-}
-
-.modal-content-wrapper .modal-component {
-  padding-top: 20px;
-  width: 50%;
-  margin-bottom: 20px;
 }
 
 .close-button {
@@ -492,11 +490,8 @@ header {
     transition: 0.5s;
     border-radius: 20px 20px 0 0;
   }
-  .modal-content .submit-btn {
-    width: 100%;
-    text-align: center;
-  }
   .modal-content .modal-content-wrapper {
+    padding-top: 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -507,6 +502,13 @@ header {
             align-items: center;
   }
   .modal-content .modal-content-wrapper .modal-component {
+    width: 100%;
+  }
+  .modal-content .submit-btn {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .modal-content .submit-btn .btn {
     width: 100%;
   }
 }
