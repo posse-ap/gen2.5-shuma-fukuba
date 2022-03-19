@@ -121,8 +121,17 @@ header {
   color: #97b9d1;
 }
 
+.main-row {
+  align-items: stretch;
+}
+
 .main-half-box {
   margin-top: 20px;
+  &:first-child {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 }
 
 .learning-time-cards {
@@ -157,9 +166,18 @@ header {
   width: 50%;
 }
 
-.pie-target {
+.bar-graph-card {
+  height: 100%;
+}
+.square-box {
   width: 100%;
+}
+.pie-target {
   object-fit: cover;
+}
+
+.tags {
+  padding-top: 20px;
 }
 
 .languages-tags {
@@ -168,6 +186,10 @@ header {
 
 .contents-tags {
   @include graph-property($contents-colors, 3);
+}
+
+.tag {
+  display: inline-block;
 }
 
 .foot-nav {

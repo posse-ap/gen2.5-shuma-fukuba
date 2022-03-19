@@ -104,8 +104,27 @@ header {
   color: #97b9d1;
 }
 
+.main-row {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
 .main-half-box {
   margin-top: 20px;
+}
+
+.main-half-box:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .learning-time-cards {
@@ -151,10 +170,21 @@ header {
   width: 50%;
 }
 
-.pie-target {
+.bar-graph-card {
+  height: 100%;
+}
+
+.square-box {
   width: 100%;
+}
+
+.pie-target {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.tags {
+  padding-top: 20px;
 }
 
 .languages-tags .color-1::before {
@@ -265,6 +295,10 @@ header {
   background-color: #20bdde;
   border-radius: 50%;
   margin-right: 5px;
+}
+
+.tag {
+  display: inline-block;
 }
 
 .foot-nav {

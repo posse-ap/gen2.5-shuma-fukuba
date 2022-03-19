@@ -1,82 +1,112 @@
-window.onload = () => {
-    let target = document.getElementById('languages-target');
-    let content = new Chart(target, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                backgroundColor: [
-                    'rgb(3, 69, 236)',
-                    'rgb(15, 113, 189)',
-                    'rgb(32, 189, 222)',
-                    'rgb(60, 206, 254)',
-                    'rgb(178, 158, 243)',
-                    'rgb(109, 70, 236)',
-                    'rgb(74, 23, 239)',
-                    'rgb(49, 5, 192)',
-                ],
-                data: [42, 18, 10, 6, 6, 6, 6, 6],
-            }],
-        },
-        options: {
-            responsive: true,
-        },
-    })
+let target = document.getElementById('languages-target');
+let content = new Chart(target, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            backgroundColor: [
+                'rgb(3, 69, 236)',
+                'rgb(15, 113, 189)',
+                'rgb(32, 189, 222)',
+                'rgb(60, 206, 254)',
+                'rgb(178, 158, 243)',
+                'rgb(109, 70, 236)',
+                'rgb(74, 23, 239)',
+                'rgb(49, 5, 192)',
+            ],
+            data: [42, 18, 10, 6, 6, 6, 6, 6],
+        }],
+    },
+    options: {
+        responsive: true,
+    },
+})
 
 
-    target = document.getElementById('contents-target');
-    content = new Chart(target, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                backgroundColor: [
-                    'rgb(3, 69, 236)',
-                    'rgb(15, 113, 189)',
-                    'rgb(32, 189, 222)',
-                ],
-                data: [42, 33, 25],
-            }],
-        },
-        options: {
-            responsive: true,
-        },
-    });
+target = document.getElementById('contents-target');
+content = new Chart(target, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            backgroundColor: [
+                'rgb(3, 69, 236)',
+                'rgb(15, 113, 189)',
+                'rgb(32, 189, 222)',
+            ],
+            data: [42, 33, 25],
+        }],
+    },
+    options: {
+        responsive: true,
+    },
+});
 
+const samples = [...Array(30)].map((_, i) => i + 1)
+const startDate = new Date('2022-3-1')
+const endDate = new Date('2022-3-31')
+const dateList = new Array()
+
+for (let d = startDate; d < endDate; d.setDate(d.getDate()+1)) {
+    var formatDate = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
+    dateList.push(formatDate)
 }
 
-// (function () {
-//     function drawChart() {
-//         const languages = [
-//             { language: 'JavaScript', num: 42 },
-//             { language: 'CSS', num: 18 },
-//             { language: 'PHP', num: 10 },
-//             { language: 'HTML', num: 6 },
-//             { language: 'Laravel', num: 6 },
-//             { language: 'SQL', num: 6 },
-//             { language: 'SHELL', num: 6 },
-//             { language: '情報システム基礎知識', num: 6 }
-//         ]
-//         const learningContents = [
-//             { contents: 'ドットインストール', num: 42 },
-//             { contents: 'N予備校', num: 33 },
-//             { contents: 'POSSE課題', num: 25 }
-//         ]
-//         var data = new google.visualization.DataTable()
-//         data.addColumn('string', 'language')
-//         data.addColumn('number', 'percentage')
-//         languages.forEach((element) => {
-//             data.addRow([element.language, element.num])
-//         })
-//         var options = {
-//             width: 300,
-//             height: 300
-//         }
+const datas = []
+for (let i = 0; i < samples.length; i++) {
+    let data = { x: dateList[i], y: samples[i]}
+    datas.push(data)
+}
 
-//         var chart = new google.visualization.PieChart(document.getElementById('languages-target'))
-//         chart.draw(data, options)
-//     }
+target = document.getElementById('bar-graph')
+let ctx = target.getContext('2d')
+let gradient = ctx.createLinearGradient(0, 0, 0, 1000)
+gradient.addColorStop(0, 'rgb(59, 204, 254)')
+gradient.addColorStop(1, 'rgb(17, 117, 191)')
 
-//     google.charts.load('current', { packages: ['corechart'] })
-//     google.charts.setOnLoadCallback(drawChart)
+content = new Chart(target, {
+    type: 'bar',
+    data: {
+        datasets: [{
+            data: datas,
+            backgroundColor: gradient,
+            borderRadious: '99999px',
+            fill: false,
+        }],
+    },
 
-
-// })()
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+            },
+        },
+    },
+    scales: {                          //軸設定
+        yAxes: [{                      //y軸設定
+            display: true,             //表示設定
+            scaleLabel: {              //軸ラベル設定
+               display: true,          //表示設定
+               labelString: '縦軸ラベル',  //ラベル
+               fontSize: 18               //フォントサイズ
+            },
+            ticks: {                      //最大値最小値設定
+                min: 0,                   //最小値
+                max: 30,                  //最大値
+                fontSize: 18,             //フォントサイズ
+                stepSize: 5               //軸間隔
+            },
+        }],
+        xAxes: [{                         //x軸設定
+            display: true,                //表示設定
+            barPercentage: 0.4,           //棒グラフ幅
+            categoryPercentage: 0.4,      //棒グラフ幅
+            scaleLabel: {                 //軸ラベル設定
+               display: true,             //表示設定
+               labelString: '横軸ラベル',  //ラベル
+               fontSize: 18               //フォントサイズ
+            },
+            ticks: {
+                fontSize: 18             //フォントサイズ
+            },
+        }],
+    },
+})
