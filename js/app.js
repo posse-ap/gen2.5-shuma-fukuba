@@ -1,3 +1,5 @@
+
+
 const languages = ['JavaScript', 'CSS', 'PHP', 'HTML', 'Laravel', 'SQL', 'SHELL', '情報システム基礎知識']
 const learningContents = ['ドットインストール', 'N予備校', 'POSSE課題']
 
@@ -36,6 +38,27 @@ window.onload = () => {
 
 
 const loading = async() => {
+    let loader = document.getElementById('loader')
+    let awesome = document.getElementById('awesome')
+    const toggleLoader = () => {
+        loader.style.display = 'none'
+        awesome.style.display = 'flex'
+    }
+    const closeAwesome = () => {
+        awesome.style.display = 'none'
+    }
+    loader.style.display = 'flex'
     await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json())
     .then(json => console.log(json))
+    await myPromise(toggleLoader)
+    await myPromise(closeAwesome)
+
+}
+
+const myPromise = (func) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(func())
+        }, 5000)
+    })
 }
