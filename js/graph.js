@@ -1,4 +1,4 @@
-let target = document.getElementById('languages-target');
+let target = document.getElementById('languages-target').getContext("2d")
 let content = new Chart(target, {
     type: 'doughnut',
     data: {
@@ -18,7 +18,17 @@ let content = new Chart(target, {
     },
     options: {
         responsive: true,
+        plugins: {
+            datalabels: {
+                color: '#fff',
+                formatter: (value, target) => {
+                    if (value < 10) return ''
+                    return value + '%';
+                },
+            }
+        }
     },
+
 })
 
 
@@ -37,23 +47,28 @@ content = new Chart(target, {
     },
     options: {
         responsive: true,
+        plugins: {
+            datalabels: {
+                color: '#fff',
+                formatter: (value, target) => {
+                    return value + '%';
+                },
+            }
+        }
     },
 });
 
-const samples = [...Array(30)].map((_, i) => i + 1)
+const samples = [...Array(30)].map((_, i) => (i + 1) % 3 + 1)
 const startDate = new Date('2022-3-1')
 const endDate = new Date('2022-3-31')
 const dateList = new Array()
 
-for (let d = startDate; d < endDate; d.setDate(d.getDate()+1)) {
-    var formatDate = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()
+for (let d = startDate; d < endDate; d.setDate(d.getDate() + 1)) {
+    var formatDate = Number(d.getDate())
+    if (formatDate % 2 !== 0) {
+        formatDate = ''
+    }
     dateList.push(formatDate)
-}
-
-const datas = []
-for (let i = 0; i < samples.length; i++) {
-    let data = { x: dateList[i], y: samples[i]}
-    datas.push(data)
 }
 
 target = document.getElementById('bar-graph')
@@ -65,8 +80,9 @@ gradient.addColorStop(1, 'rgb(17, 117, 191)')
 content = new Chart(target, {
     type: 'bar',
     data: {
+        labels: dateList,
         datasets: [{
-            data: datas,
+            data: samples,
             backgroundColor: gradient,
             borderRadious: '99999px',
             fill: false,
@@ -75,38 +91,48 @@ content = new Chart(target, {
 
     options: {
         plugins: {
-            legend: {
+            datalabels: {
                 display: false,
             },
         },
+        legend: {
+            display: false,
+        },
+        scales: {
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    fontSize: 16
+                },
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    display: true,
+                    suggestedMin: 0,
+                    suggestedMax: 8,
+                    stepSize: 2,
+                    callback: (tick) => {
+                        return tick.toString() + 'h'
+                    }
+                },
+            }],
+            xAxes: [{
+                display: true,
+                barPercentage: 0.5,
+                categoryPercentage: 0.5,
+                gridLines: {
+                    display: false,
+                },
+                ticks: {
+                    display: true,
+                    min: 1,
+                    max: 31,
+                    stepSize: 2,
+                }
+            }],
+        },
     },
-    scales: {                          //軸設定
-        yAxes: [{                      //y軸設定
-            display: true,             //表示設定
-            scaleLabel: {              //軸ラベル設定
-               display: true,          //表示設定
-               labelString: '縦軸ラベル',  //ラベル
-               fontSize: 18               //フォントサイズ
-            },
-            ticks: {                      //最大値最小値設定
-                min: 0,                   //最小値
-                max: 30,                  //最大値
-                fontSize: 18,             //フォントサイズ
-                stepSize: 5               //軸間隔
-            },
-        }],
-        xAxes: [{                         //x軸設定
-            display: true,                //表示設定
-            barPercentage: 0.4,           //棒グラフ幅
-            categoryPercentage: 0.4,      //棒グラフ幅
-            scaleLabel: {                 //軸ラベル設定
-               display: true,             //表示設定
-               labelString: '横軸ラベル',  //ラベル
-               fontSize: 18               //フォントサイズ
-            },
-            ticks: {
-                fontSize: 18             //フォントサイズ
-            },
-        }],
-    },
+
 })

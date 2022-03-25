@@ -213,6 +213,13 @@ header {
   display: none;
 }
 
+.modal-content-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 // loading
 @-webkit-keyframes loading {
   from {
@@ -238,14 +245,10 @@ header {
 .modal-float {
   width: 100%;
   height: 100%;
-  background-color: #eee;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
   display: none;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 
 .awesome {
@@ -335,7 +338,7 @@ header {
     content: "";
   }
   &::after {
-    background: #eee;
+    background: #fff;
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -398,7 +401,8 @@ header {
     align-self: center;
     width: 100%;
     max-width: 900px;
-    padding: 0 56px 20px 56px;
+    height: 500px;
+    padding: 20px 56px;
     box-sizing: border-box;
     background-color: #fff;
     line-height: 1.4em;

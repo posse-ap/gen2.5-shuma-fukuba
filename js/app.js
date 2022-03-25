@@ -37,28 +37,40 @@ window.onload = () => {
 }
 
 
-const loading = async() => {
+const submit = async () => {
+    const toggle = (fadeOut, fadeIn) => {
+        fadeOut.style.display = 'none'
+        fadeIn.style.display = 'flex'
+    }
     let loader = document.getElementById('loader')
     let awesome = document.getElementById('awesome')
+    let form = document.getElementById('form-container')
     const toggleLoader = () => {
         loader.style.display = 'none'
         awesome.style.display = 'flex'
     }
     const closeAwesome = () => {
         awesome.style.display = 'none'
+        form.style.display = 'block'
     }
-    loader.style.display = 'flex'
-    await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json())
-    .then(json => console.log(json))
-    await myPromise(toggleLoader)
-    await myPromise(closeAwesome)
-
+    const shareTweet = () => {
+        let share = document.getElementById("share")
+        if (share.checked) {
+            let baseUrl = 'https://twitter.com/intent/tweet'
+            baseUrl += '?text=' + encodeURIComponent(document.getElementById('twitter-comment').value)
+            window.open(baseUrl)
+        }
+    }
+    toggle(form, loader)
+    await myPromise(toggleLoader, 3000)
+    await myPromise(shareTweet, 0)
+    await myPromise(closeAwesome, 3000)
 }
 
-const myPromise = (func) => {
+const myPromise = (func, time) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(func())
-        }, 5000)
+        }, time)
     })
 }

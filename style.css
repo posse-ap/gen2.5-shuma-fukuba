@@ -321,6 +321,19 @@ header {
   display: none;
 }
 
+.modal-content-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
 @-webkit-keyframes loading {
   from {
     -webkit-transform: rotate(0deg);
@@ -346,11 +359,6 @@ header {
 .modal-float {
   width: 100%;
   height: 100%;
-  background-color: #eee;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -358,6 +366,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border: none;
 }
 
 .awesome {
@@ -430,7 +439,7 @@ header {
 }
 
 .loader::after {
-  background: #eee;
+  background: #fff;
   width: 75%;
   height: 75%;
   border-radius: 50%;
@@ -501,7 +510,8 @@ header {
         align-self: center;
     width: 100%;
     max-width: 900px;
-    padding: 0 56px 20px 56px;
+    height: 500px;
+    padding: 20px 56px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background-color: #fff;
