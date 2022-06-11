@@ -2,6 +2,7 @@ version: "3"
 
 services:
   db:
+    container_name: laravel_db_dev
     build:
       context: ./db
     ports:
@@ -15,12 +16,14 @@ services:
       - MYSQL_ROOT_PASSWORD=password
     platform: linux/x86_64
   app:
+    container_name: laravel_app_dev
     build:
       context: ./app
     volumes:
       - ../src:/work/backend
     depends_on: ["db"]
   web:
+    container_name: laravel_web_dev
     build:
       context: ./web
     ports:
