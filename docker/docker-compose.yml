@@ -7,7 +7,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./db/var/lib/mysql:/var/lib/mysql
+      - laravel-db:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=laravel
       - MYSQL_USER=laravel
@@ -28,3 +28,6 @@ services:
     volumes:
       - ../src:/work/backend
     depends_on: ["app"]
+
+volumes:
+  laravel-db:
